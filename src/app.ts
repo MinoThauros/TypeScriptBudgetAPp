@@ -27,7 +27,7 @@ const targetBudget = {
  * use the Input function to ask the user through the console to populate the fields
  * @returns the constructed object from user interaction
  */
-async function getSpending(): Promise<Spending> {//async because you need to await for the Input to return
+async function getSpending(){//async because you need to await for the Input to return
   //get the amount; dont forget to transform the inputed string into a float/a number
   const amount = parseFloat(await Input('Enter the amount: '));
   //get the category, the date and the isRecurring; all are of type strings
@@ -46,7 +46,7 @@ async function getSpending(): Promise<Spending> {//async because you need to awa
  * 3) Manage the budget by subtracting the spending from the corresponding category 
  * 4) Ask if user wishes to add a new spending; if not, log the remainig budget
  */
-async function main() {
+const main=async ()=>{
   while (true) {
     const spending = await getSpending();
     spendings.push(spending);
@@ -73,12 +73,30 @@ async function main() {
  * 3) if not do not subtract and simply tell the user the budget wasnt updated
  * @param spending 
  */
-function manageBudget(spending: Spending) {
+const manageBudget=(spending: Spending)=>{
   if (targetBudget.hasOwnProperty(spending.category)) {
-    targetBudget[spending.category as keyof typeof targetBudget] -= spending.amount;//explain this line further
+    targetBudget[spending.category as keyof typeof targetBudget] -= spending.amount;
+    //1) typeof yields the structural typing of targetBudget
+    //   keyof returns the keys of a type as an union (OR) of its props
+    //===>(ex: keyof typeof targetBudget= "fun" | "clothing"...)
+    //2) "as" is a type assertion key word: TS is usually pretty good at infering types; sometimes it needs help
+    //    we know that spending.category is a string and you can use a string to fetch the content of an object prop
+    //===>ex: targetBudget['fun']===targetBudget.fun=500
   } else {
     console.log('Invalid category. Budget not updated.');
   }
 }
 
 main();
+/**
+Expored notion:
++ Structural types
++ Async/await 
++ Arrow functions
++ Basic types
++ type assertion
++ type conversion
++ conditional programming (if/else, loop)
++ Objects & custom types (structural typing)
++ primitive types (string, number, arrays)
+ */

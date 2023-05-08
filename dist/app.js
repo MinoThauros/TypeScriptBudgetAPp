@@ -31,7 +31,7 @@ async function getSpending() {
  * 3) Manage the budget by subtracting the spending from the corresponding category
  * 4) Ask if user wishes to add a new spending; if not, log the remainig budget
  */
-async function main() {
+const main = async () => {
     while (true) {
         const spending = await getSpending();
         spendings.push(spending);
@@ -43,20 +43,43 @@ async function main() {
     }
     console.log('Remaining budget:', targetBudget);
     closeStream(); //do not delete this line
-}
+};
 /**
  * This function takes care of subtracting the spending from the budget category where it belongs
- * P R O  T I P:  you can use .hasOwnProperty() to determine if the targetBudget has the same property with the same specified name
- *                as the incoming object (since you asked the user about which category the )
+ * P R O  T I P:  you can use targetBudget.hasOwnProperty('spending.category') to determine if the targetBudget has the same property
+ *                with the same specified name as the incoming object-since the user manually entered the spending through the console,
+ *                there are possibly some typos
+ *                => If there is a typo, DO NOT update the budget
+ * 1) ensure that the category entered by the user does exist on our spending categories (if it exists in targetBudget)
+ * 2) if the category matches those in targetBudget, subbstract from that category
+ * 3) if not do not subtract and simply tell the user the budget wasnt updated
  * @param spending
  */
-function manageBudget(spending) {
+const manageBudget = (spending) => {
     if (targetBudget.hasOwnProperty(spending.category)) {
         targetBudget[spending.category] -= spending.amount;
+        //1) typeof yields the structural typing of targetBudget
+        //   keyof returns the keys of a type as an union (OR) of its props
+        //===>(ex: keyof typeof targetBudget= "fun" | "clothing"...)
+        //2) "as" is a type assertion key word: TS is usually pretty good at infering types; sometimes it needs help
+        //    we know that spending.category is a string and you can use a string to fetch the content of an object prop
+        //===>ex: targetBudget['fun']===targetBudget.fun=500
     }
     else {
         console.log('Invalid category. Budget not updated.');
     }
-}
+};
 main();
+/**
+Expored notion:
++ Structural types
++ Async/await
++ Arrow functions
++ Basic types
++ type assertion
++ type conversion
++ conditional programming (if/else, loop)
++ Objects & custom types (structural typing)
++ primitive types (string, number, arrays)
+ */
 //# sourceMappingURL=app.js.map
