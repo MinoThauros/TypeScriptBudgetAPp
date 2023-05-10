@@ -4,6 +4,27 @@
 
 This repository contains code for the various topics covered in the second chapter of the DevFactory program by TimaTech, which focuses on TypeScript, React, and AWS.
 
+## Folder Structure
+
+Typescript/
+├── src/
+│   ├── Lessons/
+│   │   ├── ArrowFunctions.ts
+│   │   ├── AsynchProgramming.ts
+│   │   ├── basicTypes.ts
+│   │   ├── conditionalProg.ts
+│   │   ├── constVsLet.ts
+│   │   ├── structuralTyping.ts
+│   │   └── TypeAddertion.ts
+│   ├── utils/
+│   │   ├── Input.ts
+│   ├── app.ts
+│   └── ...
+├── .gitignore
+├── package-lock.json
+├── package.json
+├── README.md
+└── tsconfig.json
 
 ## Prerequisites
 
