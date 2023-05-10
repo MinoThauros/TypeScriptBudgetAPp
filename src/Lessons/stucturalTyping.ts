@@ -1,12 +1,33 @@
-interface Person {
+//
+/**
+  A) more traditional object-oriented languages: 
+  (class-based inheritance: Class + constructor + methods)
+ */
+class PersonV1{
+    name:string;
+    age:number;
+    action?:(action:string)=>void;
+    constructor(name:string,age:number,action?:(action:string)=>void){
+        this.name=name;
+        this.age=age;
+        this.action=action;
+    }
+}
+
+const MinoV1=new PersonV1("Minoo",30);
+
+
+interface PersonV2 {
     name: string;
     age: number;
   }
   
-  function printPerson(person: Person) {
+  const printPerson=(person: PersonV2)=>{
     console.log(`${person.name} is ${person.age} years old`);
   }
-  
+  /**
+  1) Structural typing is a way of relating types based solely on their members.
+   */
   // This object has the same shape as the Person interface, 
   //-so it is considered a valid argument for the printPerson function.
   const john = { name: "John", age: 30 };
