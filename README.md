@@ -9,7 +9,7 @@ This repository contains code for the various topics covered in the second chapt
 ```
 Typescript/
 ├── src/
-│   ├── Lessons/
+│   ├── Lessons/ (lessons + small coding challenges)
 │   │   ├── ArrowFunctions.ts
 │   │   ├── AsynchProgramming.ts
 │   │   ├── basicTypes.ts
@@ -19,13 +19,12 @@ Typescript/
 │   │   └── TypeAddertion.ts
 │   ├── utils/
 │   │   ├── Input.ts
-│   ├── app.ts
-│   └── ...
+│   ├── app.ts (main app)
 ├── .gitignore
-├── package-lock.json
-├── package.json
+├── package-lock.json (dependencies)
+├── package.json (custom scripts)
 ├── README.md
-└── tsconfig.json
+└── tsconfig.json (TS compiler behavior)
 ```
 ## Prerequisites
 
