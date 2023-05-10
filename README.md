@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repository contains code for the various topics covered in the second chapter of the DevFactory program by TimaTech, which focuses on TypeScript, React, and AWS.
+This repository contains code for the various topics covered in the second chapter of the DevFactory program by TimaTech, which focuses on TypeScript for React
 
 ## Folder Structure
 
@@ -53,11 +53,11 @@ The code is organized into folders based on the topic they cover. Each folder co
 
 The package.json file contains the following scripts: (run these in the terminal)
 
-`npm run test` to run test suite for this file (not enabled)
-`npm run start`  to compile the TypeScript code and runs the main app.(in App.ts; **this is where you'll implement your BudgetApp**)
-`npm run TSCompile` to compile your TS code into JS (you can see the equivalent JS code in the dist folder-genetated after running this command)
+* `npm run test` to run test suite for this file (not enabled)
+* `npm run start`  to compile the TypeScript code and runs the main app.(in App.ts; **this is where you'll implement your BudgetApp**)
+* `npm run TSCompile` to compile your TS code into JS (you can see the equivalent JS code in the dist folder-genetated after running this command)
 
 **To run a particular Lesson file (for assignments)**
-`npm run TSComplie`
+* `npm run TSComplie`
 And
-`node dist/Lessons/<FileName>.js`
+* `node dist/Lessons/<FileName>.js`
