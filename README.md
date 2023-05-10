@@ -28,8 +28,8 @@ Typescript/
 ```
 ## Prerequisites
 
-* Node is installed
-* Typescript is installed in your project
+* Node is installed (should be done if you set up React Native); everify with `node -v`
+* Typescript/Typescript compiler is installed in your project (should be done if you set up RN with TS); verify with `tsc --v`
 * You understand functional and OOP programming
 
 ## Topics Covered
