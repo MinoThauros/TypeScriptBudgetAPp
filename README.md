@@ -1,4 +1,4 @@
-# DevFactory Program by TimaTech
+# DevFactory Chapter 2 by TimaTech
 
 ## Overview
 
