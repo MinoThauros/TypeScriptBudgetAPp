@@ -6,6 +6,7 @@ This repository contains code for the various topics covered in the second chapt
 
 ## Folder Structure
 
+```
 Typescript/
 ├── src/
 │   ├── Lessons/
@@ -25,7 +26,7 @@ Typescript/
 ├── package.json
 ├── README.md
 └── tsconfig.json
-
+```
 ## Prerequisites
 
 * Node is installed
