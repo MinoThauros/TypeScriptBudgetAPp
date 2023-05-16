@@ -58,6 +58,6 @@ The package.json file contains the following scripts: (run these in the terminal
 * `npm run TSCompile` to compile your TS code into JS (you can see the equivalent JS code in the dist folder-genetated after running this command)
 
 **To run a particular Lesson file (for assignments)**
-* `npm run TSComplie`
+* `npm run TSCompile`
 And
 * `node dist/Lessons/<FileName>.js`
