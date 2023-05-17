@@ -8,7 +8,7 @@ if (age >= 18) {
   console.log('You are not eligible to vote.'); // Executed if the condition is false
 }
 
-// Example 2: shorter switch statement
+// Example 2: switch statement
 //---> Note: switch is usually more efficient than if-else statements
 //---> Works if switch condition is string or number
 const getDayName = (day: number): string => {
@@ -32,7 +32,7 @@ const getDayName = (day: number): string => {
     }
   };
 
-// Example 3: ternary operator: concise if-else statements
+// Example 3: ternary operator --> concise if-else statements
 //---> === is the strict equality operator; 
 //---> returns true if both operands are equal and of the same type;
 const isEven: boolean = age % 2 === 0;

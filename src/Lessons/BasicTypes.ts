@@ -1,20 +1,20 @@
-// Boolean
+// 1) Boolean
 const isTrue: boolean = true;
 const isFalse: boolean = false;
 
-// Number
+// 2) Number
 const decimalNumber: number = 3.14;
 const integerNumber: number = 42;
 
-// String
+// 3) String
 const fullName: string = 'John Doe';
 const message: string = `Hello, ${fullName}!`;
 
-// Null
+// 4) Null
 // --->The null type has only one value, null.
 const nullValue: null = null;
 
-// Undefined
+// 5) Undefined
 // --->The undefined type has only one value, undefined.
 // --->Used when a variable has not been assigned a value.
 // --->Also the return type for functions that do not explicitly return a value.
@@ -24,16 +24,18 @@ const nullValue: null = null;
 * null means the explicit absence of a value.
 * undefined means the value is not defined (yet).
  */
- 
 const undefinedValue: undefined = undefined;
 
-// Symbol
+// 6) Symbol
 // --->Symbols are unique and immutable values that can be used as property keys.
 // --->created with the Symbol() constructor.
+// ---> You'll rarely need to use this type so don't worry about it too much.
 const uniqueSymbol: symbol = Symbol('unique'); 
 
-// BigInt
-// --->BigInt is a numeric primitive type that represents integers with arbitrary precision.
+// BigInt: 
+// ---> Use it for numbers that are larger than the Number.MAX_SAFE_INTEGER.
+// ---> Basically for any number that is larger than 2^53 - 1 (anormally large number).
+// ---> Created using the BigInt() constructor; you won't use this type often.
 const bigInteger: bigint = BigInt(Number.MAX_SAFE_INTEGER) + BigInt(1); 
 
 // Void
@@ -108,3 +110,66 @@ type Name = { firstName: string; lastName: string };
 type Age = { age: number };
 type Person = Name & Age;
 const personInfo: Person = { firstName: 'John', lastName: 'Doe', age: 25 };
+
+// Functions: can effectively be treated as types in TypeScript
+//--->The type of a function is its parameter list and return type.
+
+/**
+ * Ex: Function which takes in no parameters and returns nothing (void type)
+ */
+function action(): void{
+  console.log('action');
+}
+
+/**
+ * Ex: Function which takes in a string parameter and returns a string
+ */
+function toCapitalCase(input: string):string{
+  //using let because we are reassigning the value of the variable
+  let capitalizedString: string = '';
+
+  // Iterate over each character of the input string
+  for (let i = 0; i < input.length; i++) {
+    // Get the character at the current index
+    const currentChar: string = input.charAt(i);
+
+    // Convert the character to uppercase
+    const capitalizedChar: string = currentChar.toUpperCase();
+
+    // Append the capitalized character to the result string
+    capitalizedString += capitalizedChar;
+  }
+
+  // Return the final capitalized string
+  return capitalizedString;
+};
+
+
+// Uknown Type:
+//---> `unknown` is the type-safe counterpart of `any`.
+//---> You can assign unknown to anything, but TS won't let you use that value until you do a type check/type assertion.
+
+function processUnknown(value: unknown): void {
+  if (typeof value === 'string') {//typeof allows you to retrieve the type of a variable as a string (ex: "string", "number", "boolean", etc...)
+
+    // Value is narrowed down to string type-that's why TS lets you use toUpperCase() which is a string specific method
+    console.log('Processing a string:', value.toUpperCase());
+
+  } else if (typeof value === 'number') {
+
+    // Value is narrowed down to number type-that's why TS lets you use * 2 which is a number specific operation
+    console.log('Processing a number:', value * 2);
+
+  } else {
+    console.log('Processing unknown value:', value);
+  }
+}
+
+let unknownValue: unknown = 'Hello, TypeScript!';
+processUnknown(unknownValue); // Outputs: Processing a string: HELLO, TYPESCRIPT!
+
+unknownValue = 42;
+processUnknown(unknownValue); // Outputs: Processing a number: 84
+
+unknownValue = true;
+processUnknown(unknownValue); // Outputs: Processing unknown value: true

@@ -85,7 +85,7 @@ const names3 = (people:Person[])=>{
 
 //const [count, setCount] = useState(0);
 // we wanna do some complex math/computation on the current state before setting it
-//(although you can create a separate funtion for the computing-better separation of concerns-
+//(although you can create a separate funtion for the computing (better separation of concerns-> cleaner code)
 //-and pass that function to the setCount function as an argument using a callback pattern)
 // case study: we want to setCount as the quadratic formula of count
 

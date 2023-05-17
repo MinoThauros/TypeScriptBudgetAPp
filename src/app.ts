@@ -89,7 +89,7 @@ const manageBudget=(spending: Spending)=>{
 
 main();
 /**
-Expored notion:
+Explored notion:
 + Structural types
 + Async/await 
 + Arrow functions
@@ -100,3 +100,4 @@ Expored notion:
 + Objects & custom types (structural typing)
 + primitive types (string, number, arrays)
  */
+

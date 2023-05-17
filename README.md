@@ -16,7 +16,7 @@ Typescript/
 │   │   ├── conditionalProg.ts
 │   │   ├── constVsLet.ts
 │   │   ├── structuralTyping.ts
-│   │   └── TypeAddertion.ts
+│   │   └── TypeAssertion.ts
 │   ├── utils/
 │   │   ├── Input.ts
 │   ├── app.ts (main app)

@@ -1,4 +1,4 @@
-// Example 1: Using const
+// Example 1: Using const -> it's actually a constant 
 const age = 25;
 // The value of 'age' is assigned as 25 and cannot be reassigned; const is immutable.
 // age = 30; // Error: Cannot assign to 'age' because it is a constant
@@ -20,3 +20,12 @@ let message: string;
 // The 'message' variable is declared without an initial value and can be assigned later.
 // Const cant be declared without an initial value
 message = 'Hello, World!';
+
+/**
+Recap:
+- Use const for primitive values that you don't want to change.
+- Use let for values that you want to change.
+- TypeScript will infer the value of const as a type literal (for primitive values) 
+- However, TypeScript will infer the value of let as a general type (for primitive values)
+- In the case of objects, TypeScript will infer the value of const as a general type (for objects)
+ */
