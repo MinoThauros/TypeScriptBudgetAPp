@@ -108,12 +108,12 @@ const clickHandler = () => {
 //5) time to practice
 
 /*
-Write a function called calculate that takes two numbers x and y and a callback function operation as parameters. 
-The calculate function should apply the operation callback to the numbers x and y and return the result.
+A) Write a function called calculate that takes two numbers x and y and a callback function operation as parameters. 
 
-The operation callback should take two numbers x and y as parameters and return a number that represents the result of the operation.
-The operation callback can be any mathematical operation, such as addition, subtraction, multiplication, or division.
+B) The calculate function should apply the operation callback to the numbers x and y and return the result (ex: add).
 
-use arrow functions and correct types (primitive types, function types)
+C) The operation callback can be any mathematical operation, such as addition, subtraction, multiplication, or division.
+
+D) use arrow functions and correct types (primitive types, function types)
 */
 

@@ -1,3 +1,5 @@
+//LESSON 1: Basic Types
+
 // 1) Boolean
 const isTrue: boolean = true;
 const isFalse: boolean = false;
@@ -92,7 +94,7 @@ const selectedColor: Color = Color.Green;
 // --->Literal types allow you to specify the exact value a string, number, or boolean.
 // --->This is useful when combined with union types to model a finite set of values.
 // --->Will take only one of the defined values
-// --->TypeScript can leverage the type system in order to catch bugs early.
+// --->TypeScript leverages the type system in order to catch bugs early.
 // --->The more precise the type, the less bugs.
 const userRole: 'admin' | 'user' = 'admin';
 const direction: 'up' | 'down' | 'left' | 'right' = 'up';
@@ -106,6 +108,7 @@ value = 123;
 // Intersection Types
 // --->A logical AND between types.
 // --->Useful for combining existing types to create a new type.
+//(defining custom types; you've seen it in React when defining props types)
 type Name = { firstName: string; lastName: string };
 type Age = { age: number };
 type Person = Name & Age;
@@ -148,7 +151,6 @@ function toCapitalCase(input: string):string{
 // Uknown Type:
 //---> `unknown` is the type-safe counterpart of `any`.
 //---> You can assign unknown to anything, but TS won't let you use that value until you do a type check/type assertion.
-
 function processUnknown(value: unknown): void {
   if (typeof value === 'string') {//typeof allows you to retrieve the type of a variable as a string (ex: "string", "number", "boolean", etc...)
 
@@ -173,3 +175,28 @@ processUnknown(unknownValue); // Outputs: Processing a number: 84
 
 unknownValue = true;
 processUnknown(unknownValue); // Outputs: Processing unknown value: true
+
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+/**Time TO EXERCISE:
+
+A) Create a Spending type and then spending object object with the following properties:
+- amount: number
+- category: string
+- description: string
+- date: Date
+Use Duck Typing to create the object.
+
+B) Improve the previous Spending type by restricting the possible category values to the following:
+- Food
+- Rent
+- Travel
+- Utilities
+- Wellness
+- Others
+
+C) Create a function (with correct typechecking) which takes in the spending and returns a string with the following format:
+- "spending of type {category}: {description} of {amount}€
+
+D) Export the type to be reused in other files
+ */

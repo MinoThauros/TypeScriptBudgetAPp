@@ -10,7 +10,7 @@ if (age >= 18) {
 
 // Example 2: switch statement
 //---> Note: switch is usually more efficient than if-else statements
-//---> Works if switch condition is string or number
+//---> Works if switch condition ('day' here) is of type string or number
 const getDayName = (day: number): string => {
     switch (day) {
       case 0:
@@ -36,7 +36,7 @@ const getDayName = (day: number): string => {
 //---> === is the strict equality operator; 
 //---> returns true if both operands are equal and of the same type;
 const isEven: boolean = age % 2 === 0;
-//---> ternary operator syntax: condition ? exprIfTrue : exprIfFalse
+//---> ternary operator syntax: condition ? result_If_True : result_If_False
 const message: string = isEven ? 'The number is even.' : 'The number is odd.';
 console.log(message);
 
@@ -63,7 +63,7 @@ for (const number of numbers) {
   }
 
 // Example 7: iterating over an array using a map function
-//---> map() is a higher-order function that takes a function as an argument (you'll see callbacks later)
+//---> map() is a function that takes another function as an argument (you'll see callbacks later)
 //---> map() returns a new array with the results of calling a provided function on every element in the calling array
 //---> super handy for transforming data
 type Person={
@@ -81,3 +81,10 @@ type Person={
   
   console.log(names);
   
+//-------------------------------------------------------------------------------------------------//
+/**Time TO EXERCISE:
+  * 1. create a function which returns an array of 20 numbers (each number generated randomly between 1 and 100)
+  * 2. Create 2 functions that takes in this array of numbers and replaces all even numbers with the string "even"
+  * 3. Use the array.map() function to create a new array of objects 
+  * 4. Use a loop and a ternary operator to modify the array
+*/

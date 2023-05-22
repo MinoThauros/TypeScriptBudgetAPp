@@ -67,40 +67,54 @@ const delay = (milliseconds: any): Promise<string> => {
     return result
   };
 
-  /**
-   * Now, since Promises can potentially fail, we need to handle that failure.
-   * There are a few ways to do this but the easiest is to use the try catch block and await/async keyword.
-   * The try...catch block is used to handle errors in synchronous code.
-   * When you have asynchronous code, you need to use the await/awaits keyword inside the try block.
-   * the catch block will also handle the reject() functions of all your Promises in the try block.
-   */
+/**
+ * Now, since Promises can potentially fail, we need to handle that failure.
+ * There are a few ways to do this but the easiest is to use the try catch block and await/async keyword.
+ * The try...catch block is used to handle errors in synchronous code.
+ * When you have asynchronous code, you need to use the await/awaits keyword inside the try block.
+ * the catch block will also handle the reject() functions of all your Promises in the try block.
+ */
 
-  const delayWithTryCatch = async (): Promise<string> => {
+const delayWithTryCatch = async (): Promise<string> => {
+    
+    try{
+        //wait for the user to enter a number (delay in ms)
+        const input=await Input.Input('Enter desired delay (number): ');
+
+        //wait for the delay function to resolve; 
+        //the user might enter a string instead of a number;
+        //needs to be handled as parseInt() will return NaN in that case
+        //see the delay() function for more details
+        const result=await delay(parseInt(input));
         
-        try{
-            //wait for the user to enter a number (delay in ms)
-            const input=await Input.Input('Enter desired delay (number): ');
+        return result;
 
-            //wait for the delay function to resolve; 
-            //the user might enter a string instead of a number;
-            //needs to be handled as parseInt() will return NaN in that case
-            //see the delay() function for more details
-            const result=await delay(parseInt(input));
-            
-            return result;
-
-        }catch(err){//catches any error that occurs in the try block
-            //ex: if the user enters a string instead of a number-> delay() will return a rejected Promise
-            //    and the catch block will catch it
-            return ('This error just happened: '+ err)
-            
-
-        }
+    }catch(err){//catches any error that occurs in the try block
+        //ex: if the user enters a string instead of a number-> delay() will return a rejected Promise
+        //    and the catch block will catch it
+        return ('This error just happened: '+ err)
         
-  }
+
+    }
+    
+}
 //Execution: (uncomment the lines bellow to run the code)
 //const awaitedString=await delayWithTryCatch()
 //console.log(awaitedString)
+
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+/**Time TO EXERCISE:
+
+
+1. Create a function which asynchronously asks the user to enter a number 
+
+2. -and returns a Promise (using the Promise constructor) with the entered number 
+
+3. -if the user enters a string instead of a number, the Promise should be rejected (use the isNaN() function to check if the entered value is a number)
+
+4. -create a main function which calls the function you created in step 1-Use the try...catch block to handle the Promise rejection
+*/
 
 Input.closeStream();
   
