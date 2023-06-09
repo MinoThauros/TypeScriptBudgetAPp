@@ -111,10 +111,11 @@ const delayWithTryCatch = async (): Promise<string> => {
 
 2. -and returns a Promise (using the Promise constructor) with the entered number 
 
-3. -if the user enters a string instead of a number, the Promise should be rejected (use the isNaN() function to check if the entered value is a number)
+3. -if the user enters a string or a even number, the Promise should be rejected (use the isNaN() function to check if the entered value is a number)
 
 4. -create a main function which calls the function you created in step 1-Use the try...catch block to handle the Promise rejection
 */
+//console.log(await delayWithTryCatch())
 
 Input.closeStream();
   

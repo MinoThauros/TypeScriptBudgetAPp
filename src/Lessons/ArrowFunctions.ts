@@ -117,3 +117,9 @@ C) The operation callback can be any mathematical operation, such as addition, s
 D) use arrow functions and correct types (primitive types, function types)
 */
 
+const applyOpperations = (x:number, y:number, operation:Function):number=>{
+    return operation(x,y);
+}
+
+const adder = (x:number, y:number):number=>x+y
+const add = applyOpperations(1,2,adder);

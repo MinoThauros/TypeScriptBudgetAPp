@@ -1,6 +1,7 @@
 //Sometimes, we wish to retrieve, manipulate and enforce the types of objects in our code
 // the keywords are "typeof", "keyof" and "as"
 
+
 const weather = {
     date: new Date(),
     weather: 'sunny',
@@ -31,8 +32,8 @@ interface Cat {
   }
   
 interface Dog {
-name: string;
-bark: () => void;
+    name: string;
+    bark: () => void;
 }
 
 const petSound = (pet: Cat | Dog): void => {//pet is of type Cat or Dog
@@ -69,3 +70,13 @@ const randomObject:unknown = {
 3) Use type assertion
 */
 
+
+const school={
+    name: 'Carleton',
+    location: 'Ottawa',
+}
+
+const newSchool: typeof school = {
+    name: 'Uottawa',
+    location: 'Ottawa',
+}
