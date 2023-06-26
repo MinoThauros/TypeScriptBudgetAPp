@@ -1,4 +1,4 @@
-# DevFactory Chapter 2 by TimaTech
+# TheDevFactory Chapter 2 by TimaTech
 
 ## Overview
 
