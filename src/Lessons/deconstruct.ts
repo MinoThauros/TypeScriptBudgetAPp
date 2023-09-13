@@ -26,3 +26,16 @@ props.Delete
 
 const {spending,Delete,Edit,optional}=props
 */
+
+//array deconstruction
+
+//Array destructuring in TypeScript allows you to unpack elements from an array and assign them to individual variables. 
+//The syntax is very similar to regular JavaScript, but with TypeScript, you can also specify the types of the variables.
+
+let myArray: [number, string, boolean] = [42, "hello", true];
+
+let [myNumber, myString, myBoolean] = myArray;
+
+console.log(myNumber);  // Output: 42
+console.log(myString);  // Output: hello
+console.log(myBoolean); // Output: true
