@@ -1,11 +1,19 @@
 // Example 1: Using const -> it's actually a constant 
-const age = 25;
+let age:string | number = 25;
 // The value of 'age' is assigned as 25 and cannot be reassigned; const is immutable.
-// age = 30; // Error: Cannot assign to 'age' because it is a constant
+//age = 30; // Error: Cannot assign to 'age' because it is a constant
 //->Type literal-like behavior on primitives constants
+age='23'
 
 
-const person: { name: string; age: number } = { name: 'John', age: 30 };
+const person = { 
+    name: 'John', 
+    age: 30,
+    status:{
+        married:true,
+        children:2,
+    }
+};
 // The 'person' object is assigned to a constant and its properties can be accessed and modified.
 person.age = 35;
 person.name = 'John Doe';//Type literals do not work on objects: 

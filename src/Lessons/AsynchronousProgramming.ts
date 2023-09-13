@@ -43,7 +43,6 @@ const delay = (milliseconds: any): Promise<string> => {
 
     // Creating a Promise object using the Promise constructor
     const result= new Promise<string>((resolve, reject) => {
-
         if (Number.isNaN(milliseconds))  {//parseInt() will return NaN if the user enters a string instead of a number
              //pass the value you want the Promise to return when the operation is unsuccessful to the reject() function
             reject(`Promise rejected: It seems like you did not entered a number`);

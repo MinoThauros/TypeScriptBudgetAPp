@@ -20,13 +20,19 @@ const MinoV1=new PersonV1("Minoo",30);
 //B) using structural typing: define structure of an object and that's it
 
 //you can use Class as a type
-const MinoV2:PersonV1={name:"Minoo",age:30};
+const MinoV2:PersonV1={name:"Minoo",age:30, action:(action:string)=>{console.log(action)}};
 
 interface PersonV2 {
-    name: string;
-    age: number;
-    action?:(action:string)=>void;
-  }
+  name: string;
+  age: number;
+  action?:(action:string)=>void;
+}
+
+type PersonVx =  {
+  name: string;
+  age: number;
+  action?:(action:string)=>void;
+}
 
 //you can also use interface as a type
 const MinoV3:PersonV2={name:"Minoo",age:30};
@@ -35,7 +41,7 @@ const MinoV3:PersonV2={name:"Minoo",age:30};
  * Prints a argument of type PersonV2
  * @param person 
  */
-const printPerson=(person: PersonV2)=>{
+const printPerson=(person: PersonVx)=>{
   console.log(`${person.name} is ${person.age} years old`);
 }
 /**
@@ -54,6 +60,7 @@ printPerson(john);
 // This object has additional properties, but it still has the same 
 //---> shape as the Person interface, so it is also considered a valid argument
 //---> for the printPerson function.
+//---> simply checking boxes
 const jane = { name: "Jane", age: 25, city: "New York" };
 printPerson(jane);
 

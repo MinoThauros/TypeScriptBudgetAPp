@@ -20,13 +20,19 @@ B) That's why you can also use them as const
 B) A callback function is simply a function passed into another function as an argument
  */
 
+
+//name, input (parameters) and output (return type)
+
+const text='AAA'
+
 const printThisString=(text:string)=>{
-    console.log(text);
+    console.log(text)
 }
 
 //function which takes in a function and calls it
-const runSomeAction=(action:(someString:string)=>void)=>{
-    action("Hello World");
+//event driven programming
+function runSomeAction(fct:(someString:string)=>void){
+    fct("Hello World");
 }
 
 runSomeAction(printThisString);//Hello World
@@ -34,7 +40,7 @@ runSomeAction(printThisString);//Hello World
 //using an anonymous function: we define the function inside the argument zone-same outcome
 //runSomeAction is set to take in a function that takes in a string and returns void
 //the type of the function is (string:string)=>void
-runSomeAction((string:string)=>{console.log(string)});//Hello World
+runSomeAction((text:string)=>{console.log(text)});//Hello World
 
 //-----------------------------------------------------------------------------------------------//
 
@@ -49,7 +55,7 @@ type Person = {
 }
 
 const people = [
-    { name: 'Alice', age: 25 },
+    { name: 'Alice', age: 25, id: 1 },
     { name: 'Bob', age: 30 },
     { name: 'Charlie', age: 35 },
   ];

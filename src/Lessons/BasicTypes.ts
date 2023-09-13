@@ -16,6 +16,7 @@ const message: string = `Hello, ${fullName}!`;
 // --->The null type has only one value, null.
 const nullValue: null = null;
 
+
 // 5) Undefined
 // --->The undefined type has only one value, undefined.
 // --->Used when a variable has not been assigned a value.
@@ -36,14 +37,14 @@ const uniqueSymbol: symbol = Symbol('unique');
 
 // BigInt: 
 // ---> Use it for numbers that are larger than the Number.MAX_SAFE_INTEGER.
-// ---> Basically for any number that is larger than 2^53 - 1 (anormally large number).
+// ---> Basically for any number that is larger than 2^53 - 1 (abnormally large number).
 // ---> Created using the BigInt() constructor; you won't use this type often.
 const bigInteger: bigint = BigInt(Number.MAX_SAFE_INTEGER) + BigInt(1); 
 
 // Void
 // --->Void is a little like the opposite of any: the absence of having any type at all. 
 // --->You may commonly see this as the return type of functions that do not explicitly return a value.
-function logMessage(): void {
+function logMessage() {
   console.log('This is a void function.');
 }
 
@@ -56,6 +57,7 @@ function logMessage(): void {
 let anyValue: any = 'This can be any type';
 anyValue = 42;
 anyValue = true;
+anyValue.hello(); // No error: any value can be assigned to any type
 
 // Never
 // --->The never type represents the type of values that never occur 
@@ -174,6 +176,7 @@ unknownValue = 42;
 processUnknown(unknownValue); // Outputs: Processing a number: 84
 
 unknownValue = true;
+
 processUnknown(unknownValue); // Outputs: Processing unknown value: true
 
 
