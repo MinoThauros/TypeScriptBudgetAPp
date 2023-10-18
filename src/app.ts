@@ -28,14 +28,16 @@ const targetBudget = {
  * @returns the constructed object from user interaction
  */
 async function getSpending(){//async because you need to await for the Input to return
-  //get the amount; dont forget to transform the inputed string into a float/a number
-  const amount = parseFloat(await Input('Enter the amount: '));
-  //get the category, the date and the isRecurring; all are of type strings
-  const category = await Input('Enter the category (fun, clothing, food, telecommunications, health/fitness): ');
-  const date = await Input('Enter the date (YYYY-MM-DD): ');
-  const isRecurring = (await Input('Is this a recurring expense? (yes/no): ')).toLowerCase() === 'yes';
-
+  let amount
+  let category
+  let date
+  let isRecurring
+  //get the amount
+  //get the category (fun, clothing, food, telecommunications, health/fitness):
+  //get date
+  //find 
   //using  structural typing, return the object containing all those spendings
+  
   console.log({ amount, category, date, isRecurring })
   return { amount, category, date, isRecurring };
 }
@@ -47,16 +49,21 @@ async function getSpending(){//async because you need to await for the Input to 
  * 4) Ask if user wishes to add a new spending; if not, log the remainig budget
  */
 const main=async ()=>{
+  let spending: Spending;
+  let anotherSpending: string;
   while (true) {
-    const spending = await getSpending();
-    spendings.push(spending);
-    manageBudget(spending);
+    //run the getSpending function
 
-    const anotherSpending = (await Input('Enter another spending? (yes/no): ')).toLowerCase();
-    if (anotherSpending !== 'yes') {
+    //Reassign anotherSpending to check if there if there is another spending
+
+    //call the manageBudget function to subtract the spending from the its category
+    //in the initialBudget
+
+
+    //if (anotherSpending !== 'yes') {
       break;
     }
-  }
+  
 
   console.log('Remaining budget:', targetBudget);
   closeStream();//do not delete this line
@@ -74,17 +81,13 @@ const main=async ()=>{
  * @param spending 
  */
 const manageBudget=(spending: Spending)=>{
-  if (targetBudget.hasOwnProperty(spending.category)) {
-    targetBudget[spending.category as keyof typeof targetBudget] -= spending.amount;
     //1) typeof yields the structural typing of targetBudget
     //   keyof returns the keys of a type as an union (OR) of its props
     //===>(ex: keyof typeof targetBudget= "fun" | "clothing"...)
     //2) "as" is a type assertion key word: TS is usually pretty good at infering types; sometimes it needs help
     //    we know that spending.category is a string and you can use a string to fetch the content of an object prop
     //===>ex: targetBudget['fun']===targetBudget.fun=500
-  } else {
-    console.log('Invalid category. Budget not updated.');
-  }
+    //3) if the category is not in the targetBudget, do not update the budget
 }
 
 main();

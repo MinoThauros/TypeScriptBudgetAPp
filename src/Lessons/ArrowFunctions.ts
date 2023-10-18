@@ -2,6 +2,7 @@ import { type } from "os";
 
 //1) Arrow functions
 //function which takes in a name and says hello to that name
+//function: a relationship between input and output
 const sayHello = (name:string) => {
     console.log(`Hello ${name}`);
 }
@@ -33,6 +34,7 @@ const printThisString=(text:string)=>{
 //event driven programming
 function runSomeAction(fct:(someString:string)=>void){
     fct("Hello World");
+    //fct(2); //this will not work because the function takes in a string
 }
 
 runSomeAction(printThisString);//Hello World
@@ -54,8 +56,14 @@ type Person = {
     age:number,
 }
 
+type Person2 ={
+    name:string,
+    age:number,
+    getNames?:()=>string[],
+}
+
 const people = [
-    { name: 'Alice', age: 25, id: 1 },
+    { name: 'Alice', age: 25 },//type inference
     { name: 'Bob', age: 30 },
     { name: 'Charlie', age: 35 },
   ];
@@ -77,7 +85,7 @@ const getNames = (person:  typeof people[0]) => {
 const names2 = people.map(getNames);
 
 //without using the .map function, you'd loop through the array and call the function on each element
-const names3 = (people:Person[])=>{
+const names3 = (people:Person2[])=>{
     let returnArray:string[] = [];
     for (let person of people) {
         returnArray.push(person.name);
@@ -85,7 +93,9 @@ const names3 = (people:Person[])=>{
     return returnArray;
 }
 
-//-----------------------------------------------------------------------------------------------//
+names3(people);
+
+//-------------------------------------------------------------------------------------------------//
 
 //4) how you usually see it in React
 
